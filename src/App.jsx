@@ -1,7 +1,7 @@
 // src/App.jsx
 import React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
-import ParentComponent from "./components/ParentComponent";
+import Home from "./pages/Home";
 
 /**
  * Main App component
@@ -14,7 +14,7 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <div className="App">
         <h1>Example App</h1>
-        <ParentComponent />
+        <Home />
       </div>
     </QueryClientProvider>
   );

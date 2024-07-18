@@ -1,14 +1,14 @@
 // src/components/ChildComponent.jsx
 import React from "react";
-import useData from "../hooks/useData";
+import useValidOffer from "../hooks/useValidOffer";
 
 /**
- * ChildComponent receives data from ParentComponent and uses useData hook
+ * ChildComponent receives data from ParentComponent and uses useValidOffer hook
  * @param {Object} props - The props containing the data
  * @returns {JSX.Element} - Rendered component
  */
 const ChildComponent = ({ data }) => {
-  const { validOffer } = useData(data);
+  const { validOffer } = useValidOffer(data);
 
   return (
     <div>

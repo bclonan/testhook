@@ -1,6 +1,6 @@
 // src/components/ParentComponent.jsx
 import React from "react";
-import { useQuery } from "react-query";
+import useFetchData from "../hooks/useFetchData";
 import ChildComponent from "./ChildComponent";
 
 /**
@@ -55,10 +55,7 @@ const mockDataSource = () => {
  * @returns {JSX.Element} - Rendered component
  */
 const ParentComponent = () => {
-  const { data, error, isLoading, refetch } = useQuery(
-    "promoData",
-    mockDataSource,
-  );
+  const { data, error, isLoading, refetch } = useFetchData(mockDataSource);
 
   if (isLoading) {
     return <div>Loading...</div>;
