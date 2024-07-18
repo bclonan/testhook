@@ -1,21 +1,25 @@
 // src/App.jsx
 import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import Home from "./pages/Home";
+import OtherPage from "./pages/OtherPage";
+import NavBar from "./components/NavBar";
 
-/**
- * Main App component
- * @returns {JSX.Element} - Rendered App component
- */
 const App = () => {
   const queryClient = new QueryClient();
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="App">
-        <h1>Example App</h1>
-        <Home />
-      </div>
+      <Router>
+        <div className="App">
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/other" element={<OtherPage />} />
+          </Routes>
+        </div>
+      </Router>
     </QueryClientProvider>
   );
 };

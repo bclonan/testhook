@@ -1,6 +1,6 @@
 // src/pages/Home.jsx
 import React from "react";
-import ParentComponent from "../components/ParentComponent";
+import DataFetchingComponent from "../components/DataFetchingComponent";
 
 /**
  * Home page component
@@ -10,7 +10,8 @@ const Home = () => {
   return (
     <div>
       <h1>Home Page</h1>
-      <ParentComponent />
+      <DataFetchingComponent />
+      <DataFetchingComponent />
     </div>
   );
 };

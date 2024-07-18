@@ -1,12 +1,6 @@
-// src/components/ChildComponent.jsx
 import React from "react";
 import useValidOffer from "../hooks/useValidOffer";
 
-/**
- * ChildComponent receives data from ParentComponent and uses useValidOffer hook
- * @param {Object} props - The props containing the data
- * @returns {JSX.Element} - Rendered component
- */
 const ChildComponent = ({ data }) => {
   const { validOffer } = useValidOffer(data);
 
