@@ -1,26 +1,22 @@
-import "./App.css";
-
-// export default function App() {
-//   return (
-//     <main>
-//       React ⚛️ + Vite ⚡ + Replit
-//     </main>
-//   )
-// }
-// src/App.js
+// src/App.jsx
 import React from "react";
-import MyComponent from "./components/MyComponent";
+import { QueryClient, QueryClientProvider } from "react-query";
+import ParentComponent from "./components/ParentComponent";
 
 /**
  * Main App component
  * @returns {JSX.Element} - Rendered App component
  */
 const App = () => {
+  const queryClient = new QueryClient();
+
   return (
-    <main>
-      <h1>Promo Offers Test</h1>
-      <MyComponent />
-    </main>
+    <QueryClientProvider client={queryClient}>
+      <div className="App">
+        <h1>Example App</h1>
+        <ParentComponent />
+      </div>
+    </QueryClientProvider>
   );
 };
 
