@@ -19,7 +19,18 @@ const useData = (dataSource) => {
       const result = await dataSource();
       setData(result);
 
-      const validOffers = result.all_active_promo_offers || [];
+      // Function to find the key in deeply nested objects
+      const findAllActivePromoOffers = (obj) => {
+        if (!obj || typeof obj !== "object") return null;
+        if (obj.all_active_promo_offers) return obj.all_active_promo_offers;
+        for (const key of Object.keys(obj)) {
+          const nestedResult = findAllActivePromoOffers(obj[key]);
+          if (nestedResult) return nestedResult;
+        }
+        return null;
+      };
+
+      const validOffers = findAllActivePromoOffers(result) || [];
       if (validOffers.length > 0) {
         const highestOffer = validOffers.reduce(
           (max, offer) => (offer.amount > max.amount ? offer : max),
